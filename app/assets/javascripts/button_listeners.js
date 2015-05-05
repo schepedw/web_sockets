@@ -2,7 +2,6 @@ $(function(){
 
   $('.ball').click(function(){
     //TODO If everyone is going to know we've selected this ball, we need to tell the server
-    $(this).toggleClass('selected');
   });
 
   $('#new-ball').click(function(){

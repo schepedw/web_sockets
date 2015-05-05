@@ -5,11 +5,14 @@ $(function(){
 });
 
 var establishConnection = function(){
-  //connect here
-  /*
-   dispatcher.on_open = function(data) {
-     console.log('Connection has been established: ', data);
-   }
-   */
+  dispatcher = new WebSocketRails('localhost:3000/websocket');
+  dispatcher.on_open = function(data) {
+    console.log('Connection has been established: ', data);
+  }
+  dispatcher.bind('ball.click', clickBall);
   return dispatcher;
+}
+
+var clickBall = function(message){
+  $('#' + message.ball_id).toggleClass('selected');
 }
